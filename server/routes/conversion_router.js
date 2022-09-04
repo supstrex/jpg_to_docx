@@ -17,17 +17,17 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage,
-  limits: { fileSize: 50000000 },
+  limits: { fileSize: 5000 },
   fileFilter: (req, file, cb) => {
     if (file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
       cb(null, true);
     } else {
       cb(null, false);
-      return cb(new Error("Only .jpg or .jpeg format is allowed!"));
+      return cb(new Error("Only .jpg/.jpeg format is allowed!"));
     }
   },
 });
 
-router.post("/jpg-doc", upload.single("original_image"), jpgToDoc);
+router.post("/jpg-doc", upload.single("original_file"), jpgToDoc);
 
 export default router;

@@ -1,6 +1,7 @@
 import express from "express";
 import conversionRouter from "./routes/conversion_router.js";
 import downloadRouter from "./routes/download_router.js";
+import customErrorHandler from "./routes/custom_error_handler.js";
 import mongoose from "mongoose";
 import cors from "cors";
 import path from "path";
@@ -20,5 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/convert", conversionRouter);
 app.use("/download", downloadRouter)
+app.use(customErrorHandler)
 
 app.listen(process.env.PORT || 3000);

@@ -1,22 +1,26 @@
 import { Outlet, Link } from "react-router-dom";
 
-const Layout = () => {
+function Layout(props) {
+  function onClick(){
+    if(props.download.isReady){
+      props.clearDownload();
+    }
+  }
   return (
     <>
       <header>
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={onClick}>Home</Link>
             </li>
           </ul>
         </nav>
       </header>
       <Outlet />
-      <footer>
-      </footer>
+      <footer></footer>
     </>
   );
-};
+}
 
 export default Layout;

@@ -11,15 +11,22 @@ export default function App() {
     isReady: false,
     fileUrl: "",
   });
-  
+
   function onConversion(fileUrl) {
     setDownload({ isReady: true, fileUrl });
+  }
+
+  function clearDownload() {
+    setDownload({ isReady: false, fileUrl: "" });
   }
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={<Layout download={download} clearDownload={clearDownload} />}
+        >
           <Route
             index
             element={

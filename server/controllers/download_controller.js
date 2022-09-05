@@ -3,7 +3,6 @@ import path from "path";
 export async function getDocx(req, res) {
   const docxName = req.params.fileName;
   const file = path.resolve("./public/docxs/" + docxName);
-
   if (!file) {
     return res.status(200).send({
       status: "Denied",

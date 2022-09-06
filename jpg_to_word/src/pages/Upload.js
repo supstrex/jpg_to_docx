@@ -136,13 +136,13 @@ function Upload(props) {
         </div>
       </div>
       {file.data ? (
-        <form onSubmit={onSubmit}>
-          <div className="convert">
-            <button className="convert-button" type="submit">
-              Convert
-            </button>
-          </div>
-        </form>
+        <div className="convert">
+          <form onSubmit={onSubmit}>
+              <button className="convert-button" type="submit">
+                Convert
+              </button>
+          </form>
+        </div>
       ) : (
         <></>
       )}

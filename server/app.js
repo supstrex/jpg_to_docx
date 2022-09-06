@@ -2,16 +2,16 @@ import express from "express";
 import conversionRouter from "./routes/conversion_router.js";
 import downloadRouter from "./routes/download_router.js";
 import customErrorHandler from "./routes/custom_error_handler.js";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 import cors from "cors";
 import path from "path";
 
 /*Connect to MongoDB*/
-try {
-  await mongoose.connect(process.env.MONGO_HOSTNAME);
-} catch (error) {
-  console.log(error);
-}
+// try {
+//   await mongoose.connect(process.env.MONGO_HOSTNAME);
+// } catch (error) {
+//   console.log(error);
+// }
 
 const app = express();
 

@@ -5,6 +5,8 @@ import uuid from "uuid";
 
 const router = express.Router();
 const DIR = './public/images';
+
+/*Multer storage configuration*/
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
       cb(null, DIR);
@@ -15,9 +17,10 @@ const storage = multer.diskStorage({
   }
 });
 
+/*Validate image multidata*/
 const upload = multer({
   storage,
-  limits: { fileSize: 5000 },
+  limits: { fileSize: 500000000 },
   fileFilter: (req, file, cb) => {
     if (file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
       cb(null, true);

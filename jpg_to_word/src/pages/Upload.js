@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import useDrivePicker from "react-google-drive-picker";
 import DropboxChooser from "react-dropbox-chooser";
+import dropboxIcon from "../media/dropboxIcon.ico";
+import googleDriveIcon from "../media/googleDriveIcon.png";
 
 function Upload(props) {
   /*Some keys*/
@@ -99,38 +101,43 @@ function Upload(props) {
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="form-group">
-          <input type="file" onChange={onFileChange} />
-        </div>
-        <div>
-          <button className="Drive" onClick={() => handleOpenPicker()}>
-            Open Picker
+    <div className="row">
+      <div>
+        <label className="file-selection-button" htmlFor="file">
+          <input className="file-selection-button-input" type="file" name="file" id="file" onChange={onFileChange} />
+        </label>
+      </div>
+      <div>
+        <button
+          className="picker-button"
+          onClick={() => handleOpenPicker()}
+        >
+          <img src={googleDriveIcon} alt="Google Drive Icon" />
+        </button>
+      </div>
+      <div>
+        <DropboxChooser
+          appKey={DROPBOX_APP_KEY}
+          linkType="direct"
+          success={(dropBoxFile) => onSuccess(dropBoxFile)}
+          cancel={() => onCancel()}
+          multiselect={false}
+          extensions={[".jpg", ".jpeg"]}
+        >
+          <button className="picker-button dropBox">
+            <img src={dropboxIcon} alt="Dropbox Icon" />
+          </button>
+        </DropboxChooser>
+      </div>
+      <form onSubmit={onSubmit}>
+        <div className="convert">
+          <button className="convert-button" type="submit">
+            Convert
           </button>
         </div>
-        <div>
-          <DropboxChooser
-            appKey={DROPBOX_APP_KEY}
-            linkType="direct"
-            success={(dropBoxFile) => onSuccess(dropBoxFile)}
-            cancel={() => onCancel()}
-            multiselect={false}
-            extensions={[".jpg", ".jpeg"]}
-          >
-            <button className="dropbox-button">DropBox</button>
-          </DropboxChooser>
-        </div>
-        <div>
-          <p className="error-msg">{errorMsg}</p>
-        </div>
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <button className="btn btn-primary" type="submit">
-              Convert
-            </button>
-          </div>
-        </form>
+      </form>
+      <div>
+        <p className="error-msg">{errorMsg}</p>
       </div>
     </div>
   );

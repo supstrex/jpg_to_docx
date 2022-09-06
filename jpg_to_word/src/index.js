@@ -13,12 +13,7 @@ export default function App() {
     isReady: false,
     fileUrl: "",
   });
-
-  const [loading, setLoading] = useState(false);
-
-  function setLoadingState() {
-    setLoading(loading ? false : true);
-  }
+  
   /*Keep state of downloaded file*/
   function onConversion(fileUrl) {
     setDownload({ isReady: true, fileUrl });
@@ -30,11 +25,6 @@ export default function App() {
 
   return (
     <div className="app-window">
-      {loading ? (
-        <div className="loader-container">
-          <div className="spinner"></div>
-        </div>
-      ) : (
         <BrowserRouter>
           <Routes>
             <Route
@@ -51,7 +41,6 @@ export default function App() {
                   ) : (
                     <Upload
                       onConversion={onConversion}
-                      setLoadingState={setLoadingState}
                     />
                   )
                 }
@@ -60,7 +49,7 @@ export default function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      )}
+      
     </div>
   );
 }

@@ -3,6 +3,7 @@ body {
     background: linear-gradient(110deg, #0F1829, #050812);
     margin: 0px;
 }
+
 .loader-container {
     width: 100%;
     height: 100vh;
@@ -10,9 +11,10 @@ body {
     justify-content: center;
     align-items: center;
     position: fixed;
-    background: rgba(116,165,255, 0.1);
+    background: rgba(116, 165, 255, 0.1);
     z-index: 1;
 }
+
 .spinner {
     width: 64px;
     height: 64px;
@@ -21,14 +23,17 @@ body {
     border-radius: 50%;
     animation: spin-anim 1.2s linear infinite;
 }
+
 @keyframes spin-anim {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
+
 video {
     position: absolute;
     top: 0;
@@ -39,20 +44,41 @@ video {
     object-fit: cover;
     z-index: -1;
 }
-img {
+
+.logoImg {
     width: 300px;
     height: 40px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 30px;
 }
+.copyImg{
+    width: 50px;
+    height: 50px; 
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid white
+}
+.downloadImg{
+    width: 50px;
+    height: 50px; 
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid white
+}
+.copy-button {
+    border: none;
+    background: none;
+}
+
 .h1404 {
     font-size: 140px;
     margin-bottom: 0;
     margin-top: 360px;
     color: white;
 }
+
 .h2404 {
     margin-top: 0;
     max-width: 700px;
@@ -60,7 +86,8 @@ img {
     width: 90%;
     color: white;
 }
-.row{
+
+.row {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -71,201 +98,72 @@ img {
     align-items: center;
     text-align: center;
     color: white;
-    background: rgba(116,165,255, .1);
+    background: rgba(116, 165, 255, .1);
+    white-space: nowrap;
+    overflow: hidden;
 }
-.firstButton {
-    text-decoration: none;
-    border: 3px solid rgb(116,165,255);
-    color: transparent;
-    padding: 15px 25px;
-    font-size: 18px;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 0.1s;
-    position: relative;
-}
-.firstButton:before {
-    content: "Open Picker";
+
+.file-pickers {
     display: flex;
-    justify-content: center;
     align-items: center;
-    color:  rgb(116,165,255);
-    background: #020924;
-    font-size: 18px;
-    top: 0;
-    left: 100%;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 1s;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transform: scale(0) rotatey(0);
-    opacity: 0;
-}
-.firstButton:hover:before {
-    transform: scale(1) rotatey(360deg);
-    left: 0;
-    opacity: 1;
-}
-.firstButton:after {
-    content: "Open Picker";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:  rgb(116,165,255);
-    background: #020924;
-    font-size: 18px;
-    top: 0;
-    left: 0;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 1s;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transform: scale(1) rotatey(0);
-    opacity: 1;
-}
-.firstButton:hover:after {
-    transform: scale(0) rotatey(180deg);
-    left: -50%;
-    opacity: 0;
-}
-.secondButton {
-    text-decoration: none;
-    border: 3px solid rgb(116,165,255);
-    color: transparent;
-    padding: 15px 25px;
-    font-size: 18px;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 0.1s;
-    position: relative;
-}
-.secondButton:before {
-    content: "Dropbox";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:  rgb(116,165,255);
-    background: #020924;
-    font-size: 18px;
-    top: 0;
-    left: 100%;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 1s;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transform: scale(0) rotatey(0);
-    opacity: 0;
-}
-.secondButton:hover:before {
-    transform: scale(1) rotatey(360deg);
-    left: 0;
-    opacity: 1;
-}
-.secondButton:after {
-    content: "Dropbox";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:  rgb(116,165,255);
-    background: #020924;
-    font-size: 18px;
-    top: 0;
-    left: 0;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 1s;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transform: scale(1) rotatey(0);
-    opacity: 1;
-}
-.secondButton:hover:after {
-    transform: scale(0) rotatey(180deg);
-    left: -50%;
-    opacity: 0;
-}
-.file-selection-button {
-    text-decoration: none;
-    /* border: 3px solid rgb(116,165,255); */
-    color: transparent;
-    padding: 15px 25px;
-    font-size: 18px;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 0.1s;
-    position: relative;
-}
-.file-selection-button:before {
-    content: "Local";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:  rgb(116,165,255);
-    background: #020924;
-    font-size: 18px;
-    top: 0;
-    left: 0;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 1s;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transform: scale(0) rotatey(0);
-    opacity: 0;
-}
-.file-selection-button:hover:before {
-    transform: scale(1) rotatey(360deg);
-    left: 0;
-    opacity: 1;
-}
-.file-selection-button:after {
-    content: "Local";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:  rgb(116,165,255);
-    background: #020924;
-    font-size: 18px;
-    top: 0;
-    left: 0;
-    font-family: sans-serif;
-    letter-spacing: 5px;
-    transition: all 1s;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transform: scale(1) rotatey(0);
-    opacity: 1;
-}
-.file-selection-button:hover:after {
-    transform: scale(0) rotatey(180deg);
-    left: 0;
-    opacity: 0;
+    justify-content: space-between;
+
   }
-.picker-button {
+  .file-selection{
     border: none;
     background: none;
     width: 100px;
     height: 85px;
-}
-.picker-button img {
+    border-radius: 20%;
+  }
+  .file-selection > input {
+    visibility:hidden;
+    width:0;
+    height:0
+  }
+  .file-selection img {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+  }
+  .file-selection:hover {
+    box-shadow: 0 0 10px 5px rgb(191, 194, 218);
+    box-sizing: border-box;
+    transition: all 1s;
+  }
+  .picker-button {
+    border: none;
+    background: none;
+    width: 100px;
+    height: 85px;
+    border-radius: 20%;
+  }
+  .picker-button img {
     width: 100%;
     height: 100%;
-    border-radius: 20%;
+    margin: auto;
+  }
+  .picker-button:hover {
+    box-shadow: 0 0 10px 5px rgb(191, 194, 218);
+    box-sizing: border-box;
+    transition: all 1s;
+  }
+
+.secondGeneralDiv {
+    width: 100px;
+    right: 150px;
+    position: absolute;
 }
-.file-selection-button-input {
-  visibility: hidden;
+
+.firstDiv {
+    width: 200px;
+    height: 125px;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    zoom: 1
 }
-.picker-button:hover > img {
-  box-shadow: 0 0 10px 5px rgb(191, 194, 218);
-  box-sizing: border-box;
-  transition: all 1s;
+.textOfDownload{
+    font-size: 18px;;
 }
+

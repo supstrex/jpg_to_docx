@@ -6,8 +6,13 @@ import Conversion from "../models/Conversion.js";
 import sizeOf from "image-size";
 
 async function docxConversion(imageName, url, imageMimeType) {
+  /*Generate requested image path*/
   const imagePath = path.resolve("./public/images/" + imageName);
+  
+  /*Get image dimensions*/
   const dimensions = sizeOf(imagePath);
+  
+  /*Using docx package to  build new docx file*/
   const { Document, ImageRun, Packer, Paragraph } = docx;
   const doc = new Document({
     sections: [
@@ -28,8 +33,11 @@ async function docxConversion(imageName, url, imageMimeType) {
       },
     ],
   });
-
+  
+  /*Convert file to base64String*/
   const base64 = await Packer.toBase64String(doc);
+  
+  /*Generate docx file path and save file*/
   const docxName =
   imageName.slice(0, imageName.lastIndexOf(".")) + ".docx";
 
@@ -38,8 +46,11 @@ async function docxConversion(imageName, url, imageMimeType) {
     base64,
     "base64"
   );
-
+  
+  /*Generate converted file url for http get request*/
   const convertedFileUrl = url + "/download/docx/" + docxName;
+  
+  /*Save conversion history in database*/
   const conversion = new Conversion({
     _id: new mongoose.Types.ObjectId(),
     originalFile: {

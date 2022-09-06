@@ -7,15 +7,16 @@ import Download from "./pages/Download";
 import NoPage from "./pages/NoPage";
 
 export default function App() {
+  /*Keep state of downloaded file info*/
   let [download, setDownload] = useState({
     isReady: false,
     fileUrl: "",
   });
-
+  /*Keep state of downloaded file*/
   function onConversion(fileUrl) {
     setDownload({ isReady: true, fileUrl });
   }
-
+  /*Clear state of downloaded file*/
   function clearDownload() {
     setDownload({ isReady: false, fileUrl: "" });
   }

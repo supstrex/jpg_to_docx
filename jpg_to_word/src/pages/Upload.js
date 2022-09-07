@@ -99,7 +99,7 @@ function Upload(props) {
     }
   }
   return (
-    <div className="row">
+    <div className="row-upload">
       <div className="file-pickers">
         <div>
           <div className="file-selection">
@@ -111,6 +111,7 @@ function Upload(props) {
               className="file-selection-input"
               name="file-input"
               id="file-input"
+              accept="image/*"
               onChange={onFileChange}
             />
           </div>

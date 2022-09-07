@@ -8,59 +8,60 @@ import {
   FacebookIcon,
   TwitterIcon,
 } from "react-share";
+import CopyImg from "../media/link.png";
+import DownloadImg from "../media/downloading.png";
 
 function Download(props) {
   const fileUrl = props.download.fileUrl;
   /*Handle sharable link display*/
-  let [value, setValue] = useState({ url: "", buttonText: "Show Link" });
 
-  function onClick(e) {
-    e.preventDefault();
-    if (value.url === "") {
-      setValue({ url: fileUrl, buttonText: "Hide Link" });
-    } else {
-      setValue({ url: "", buttonText: "Show Link" });
-    }
+  function copyText() {
+    navigator.clipboard.writeText(fileUrl);
   }
 
   return (
-    <div>
+    <div className="row">
       <div>
-        <p>Use sharable link</p>
-        <form onSubmit={onClick}>
-          <p>{value.url}</p>
-          <button type="submit">{value.buttonText}</button>
-        </form>
-      </div>
-      <div>
-        <p>Scan QR code</p>
-        <div style={{ background: "white", padding: "16px" }}>
-          <QRCode value={fileUrl} size={200}/>
+        <div className="converted-file">
+          <p className="text-of-download">Scan QR code</p>
+          <div style={{ background: "white", padding: "10px", width: "100px", height: "100px", margin: "auto" }}>
+            <QRCode value={fileUrl} size={100} />
+          </div>
         </div>
+
+        <div className="converted-file">
+          <p className="text-of-download">Use sharable link</p>
+          <button className="copy-button" onClick={copyText}>
+            <img className="copy-img" src={CopyImg} />
+          </button>
+        </div>
+
+        <div className="converted-file">
+          <p className="text-of-download">Or simply download</p>
+          <a href={fileUrl}>
+            <img className="download-img" src={DownloadImg} />
+          </a>
+        </div>
+
       </div>
-      <div>
-        <p>Or simply download</p>
-        <a href={fileUrl}>Dowload File</a>
-      </div>
-      <div>
-        <div>
+      <div className="social-medias">
+        <div className="social">
           <EmailShareButton url={fileUrl}>
-            <EmailIcon size={40} borderRadius={10} />
+            <EmailIcon size={60} borderRadius={10} />
           </EmailShareButton>
         </div>
-        <div>
+        <div className="social">
           <FacebookShareButton url={fileUrl}>
-            <FacebookIcon size={40} borderRadius={10} />
+            <FacebookIcon size={60} borderRadius={10} />
           </FacebookShareButton>
         </div>
-        <div>
+        <div className="social">
           <TwitterShareButton url={fileUrl}>
-            <TwitterIcon size={40} borderRadius={10} />
+            <TwitterIcon size={60} borderRadius={10} />
           </TwitterShareButton>
         </div>
       </div>
     </div>
   );
 }
-
 export default Download;

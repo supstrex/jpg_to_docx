@@ -4,7 +4,7 @@ import useDrivePicker from "react-google-drive-picker";
 import DropboxChooser from "react-dropbox-chooser";
 import dropboxIcon from "../media/dropboxIcon.ico";
 import googleDriveIcon from "../media/googleDriveIcon.png";
-
+import fileSelectionIcon from "../media/fileSelectionIcon.png";
 function Upload(props) {
   /*Some keys*/
   const DROPBOX_APP_KEY = process.env.REACT_APP_DROPBOX_APP_KEY;
@@ -86,7 +86,6 @@ function Upload(props) {
     if (file) {
       const formData = new FormData();
       formData.append("original_file", file.data, file.name);
-
       axios.post("/convert/jpg-doc", formData, {}).then((res) => {
         if (res.data.status === "Denied") {
           console.log(res.data.message);
@@ -99,48 +98,58 @@ function Upload(props) {
       });
     }
   }
-
   return (
     <div className="row">
-      <div>
-        <label className="file-selection-button" htmlFor="file">
-          <input className="file-selection-button-input" type="file" name="file" id="file" onChange={onFileChange} />
-        </label>
-      </div>
-      <div>
-        <button
-          className="picker-button"
-          onClick={() => handleOpenPicker()}
-        >
-          <img src={googleDriveIcon} alt="Google Drive Icon" />
-        </button>
-      </div>
-      <div>
-        <DropboxChooser
-          appKey={DROPBOX_APP_KEY}
-          linkType="direct"
-          success={(dropBoxFile) => onSuccess(dropBoxFile)}
-          cancel={() => onCancel()}
-          multiselect={false}
-          extensions={[".jpg", ".jpeg"]}
-        >
-          <button className="picker-button dropBox">
-            <img src={dropboxIcon} alt="Dropbox Icon" />
-          </button>
-        </DropboxChooser>
-      </div>
-      <form onSubmit={onSubmit}>
-        <div className="convert">
-          <button className="convert-button" type="submit">
-            Convert
+      <div className="file-pickers">
+        <div>
+          <div className="file-selection">
+            <label htmlFor="file-input">
+              <img src={fileSelectionIcon} alt="Icon for file selection" />
+            </label>
+            <input
+              type="file"
+              className="file-selection-input"
+              name="file-input"
+              id="file-input"
+              onChange={onFileChange}
+            />
+          </div>
+        </div>
+        <div>
+          <button className="picker-button" onClick={() => handleOpenPicker()}>
+            <img src={googleDriveIcon} alt="Google Drive Icon" />
           </button>
         </div>
-      </form>
+        <div>
+          <DropboxChooser
+            appKey={DROPBOX_APP_KEY}
+            linkType="direct"
+            success={(dropBoxFile) => onSuccess(dropBoxFile)}
+            cancel={() => onCancel()}
+            multiselect={false}
+            extensions={[".jpg", ".jpeg"]}
+          >
+            <button className="picker-button dropBox">
+              <img src={dropboxIcon} alt="Dropbox Icon" />
+            </button>
+          </DropboxChooser>
+        </div>
+      </div>
+      {file.data ? (
+        <div className="convert">
+          <form onSubmit={onSubmit}>
+              <button className="convert-button" type="submit">
+                Convert
+              </button>
+          </form>
+        </div>
+      ) : (
+        <></>
+      )}
       <div>
         <p className="error-msg">{errorMsg}</p>
       </div>
     </div>
   );
 }
-
 export default Upload;

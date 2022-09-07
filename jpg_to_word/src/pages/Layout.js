@@ -12,15 +12,9 @@ function Layout(props) {
   return (
     <>
       <header>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/" onClick={onClick}>
-                <img src={convertMeLogo} alt="Logo for ConvertMe app" />
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <Link to="/" onClick={onClick}>
+          <img src={convertMeLogo} className="logo-img" alt="Logo for ConvertMe app" />
+        </Link>
       </header>
       <Outlet />
       <footer>

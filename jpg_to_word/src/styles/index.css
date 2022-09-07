@@ -3,7 +3,6 @@ body {
     background: linear-gradient(110deg, #0F1829, #050812);
     margin: 0px;
 }
-
 .loader-container {
     width: 100%;
     height: 100vh;
@@ -14,7 +13,6 @@ body {
     background: rgba(116, 165, 255, 0.1);
     z-index: 1;
 }
-
 .spinner {
     width: 64px;
     height: 64px;
@@ -23,17 +21,14 @@ body {
     border-radius: 50%;
     animation: spin-anim 1.2s linear infinite;
 }
-
 @keyframes spin-anim {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
 }
-
 .row {
     width: 80%;
     margin-left: auto;
@@ -49,7 +44,6 @@ body {
     white-space: nowrap;
     overflow: hidden;
 }
-
 video {
     position: absolute;
     top: 0;
@@ -60,7 +54,6 @@ video {
     object-fit: cover;
     z-index: -1;
 }
-
 .logo-img {
     width: 300px;
     height: 40px;
@@ -69,7 +62,6 @@ video {
     margin-right: auto;
     margin-top: 30px;
 }
-
 .copy-img {
     width: 50px;
     height: 50px;
@@ -77,7 +69,6 @@ video {
     border-radius: 50%;
     border: 2px solid white
 }
-
 .download-img {
     width: 50px;
     height: 50px;
@@ -85,19 +76,16 @@ video {
     border-radius: 50%;
     border: 2px solid white
 }
-
 .copy-button {
     border: none;
     background: none;
 }
-
 .h1-nopage {
     font-size: 140px;
     margin-bottom: 0;
     margin-top: 360px;
     color: white;
 }
-
 .h2-nopage {
     margin-top: 0;
     max-width: 700px;
@@ -105,14 +93,12 @@ video {
     width: 90%;
     color: white;
 }
-
 .file-pickers {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 10%;
 }
-
 .file-selection {
     border: none;
     background: none;
@@ -120,25 +106,21 @@ video {
     height: 85px;
     border-radius: 20%;
 }
-
 .file-selection>input {
     visibility: hidden;
     width: 0;
     height: 0
 }
-
 .file-selection img {
     width: 80%;
     height: 100%;
     margin: auto;
 }
-
 .file-selection:hover {
     box-shadow: 0 0 10px 5px rgb(191, 194, 218);
     box-sizing: border-box;
     transition: all 1s;
 }
-
 .picker-button {
     border: none;
     background: none;
@@ -146,33 +128,28 @@ video {
     height: 85px;
     border-radius: 20%;
 }
-
 .picker-button img {
     width: 100%;
     height: 100%;
     margin: auto;
 }
-
 .picker-button:hover {
     box-shadow: 0 0 10px 5px rgb(191, 194, 218);
     box-sizing: border-box;
     transition: all 1s;
 }
-
 .social-medias {
     width: 100px;
     right: 150px;
     float:right;
     vertical-align: top;
 }
-
 .social:hover {
     box-shadow: 0 0 10px 5px rgb(191, 194, 218);
     box-sizing: border-box;
     border-radius: 20%;
     width:60px;
 }
-
 .converted-file{
     width: 200px;
     height: 125px;
@@ -182,12 +159,10 @@ video {
     zoom: 1;
     padding: 15px;
 }
-
 .text-of-download {
     font-size: 20px;
     font-family: Verdana, Arial, sans-serif;
 }
-
 .convert-button {
     appearance: none;
     background-color: #000000;
@@ -197,7 +172,7 @@ video {
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: ‘Gill Sans’, ‘Gill Sans MT’, Calibri, ‘Trebuchet MS’, sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: normal;
@@ -215,21 +190,17 @@ video {
     width: 20%;
     will-change: transform;
 }
-
 .convert-button:disabled {
     pointer-events: none;
 }
-
 .convert-button:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
 }
-
 .convert-button:active {
     box-shadow: none;
     transform: translateY(0);
 }
-
 .error-msg {
     color: rgb(187, 29, 29);
     font-family: Arial, Helvetica, sans-serif;

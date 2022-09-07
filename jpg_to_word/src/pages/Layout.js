@@ -13,7 +13,7 @@ function Layout(props) {
     <>
       <header>
         <Link to="/" onClick={onClick}>
-          <img src={convertMeLogo} className="logoImg" alt="Logo for ConvertMe app" />
+          <img src={convertMeLogo} className="logo-img" alt="Logo for ConvertMe app" />
         </Link>
       </header>
       <Outlet />

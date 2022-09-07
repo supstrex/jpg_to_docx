@@ -93,7 +93,7 @@ video {
     margin-right: auto;
     margin-top: 150px;
     min-height: 50vh;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -106,10 +106,10 @@ video {
 .file-pickers {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-  }
-  .file-selection{
+    justify-content: center;
+    margin-top: 10%;
+}
+.file-selection{
     border: none;
     background: none;
     width: 100px;
@@ -167,3 +167,48 @@ video {
     font-size: 18px;;
 }
 
+.convert-button {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid white;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 20px;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  will-change: transform;
+}
+
+.convert-button:disabled {
+  pointer-events: none;
+}
+
+.convert-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.convert-button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.error-msg {
+    color:rgb(187, 29, 29);
+    font-family:Arial, Helvetica, sans-serif;
+}

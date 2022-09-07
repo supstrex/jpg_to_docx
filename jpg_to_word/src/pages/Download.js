@@ -13,8 +13,7 @@ import DownloadImg from "../media/downloading.png";
 
 function Download(props) {
   const fileUrl = props.download.fileUrl;
-  /*Handle sharable link display*/
-
+  
   function copyText() {
     navigator.clipboard.writeText(fileUrl);
   }

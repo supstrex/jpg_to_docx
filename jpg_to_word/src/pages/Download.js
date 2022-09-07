@@ -17,8 +17,8 @@ function Download(props) {
     navigator.clipboard.writeText(fileUrl);
   }
   return (
-    <div className="row">
-      <div>
+    <div className="row-download">
+      <div className="link-handling">
         <div className="converted-file">
           <p className="text-of-download">Scan QR code</p>
           <div style={{ background: "white", padding: "10px", width: "100px", height: "100px", margin: "auto" }}>
@@ -28,13 +28,13 @@ function Download(props) {
         <div className="converted-file">
           <p className="text-of-download">Use sharable link</p>
           <button className="copy-button" onClick={copyText}>
-            <img className="copy-img" src={CopyImg} alt="Icon for copying"/>
+            <img className="copy-img" src={CopyImg} alt={"Icon for copying"}/>
           </button>
         </div>
         <div className="converted-file">
           <p className="text-of-download">Or simply download</p>
           <a href={fileUrl}>
-            <img className="download-img" src={DownloadImg} alt="Icon for downloading"/>
+            <img className="download-img" src={DownloadImg} alt={"Icon for downloading"}/>
           </a>
         </div>
       </div>

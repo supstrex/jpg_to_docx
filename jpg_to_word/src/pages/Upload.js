@@ -5,17 +5,21 @@ import DropboxChooser from "react-dropbox-chooser";
 import dropboxIcon from "../media/dropboxIcon.ico";
 import googleDriveIcon from "../media/googleDriveIcon.png";
 import fileSelectionIcon from "../media/fileSelectionIcon.png";
+
 function Upload(props) {
+
   /*Some keys*/
   const DROPBOX_APP_KEY = process.env.REACT_APP_DROPBOX_APP_KEY;
   const GOOGLE_DRIVE_CLIENT_ID = process.env.REACT_APP_GOOGLE_DRIVE_CLIENT_ID;
   const GOOGLE_DRIVE_DEVELOPER_KEY =
     process.env.REACT_APP_GOOGLE_DRIVE_DEVELOPER_KEY;
+
   /*Used hooks*/
   const [file, setFile] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [openPicker, authResult] = useDrivePicker();
   const oauthToken = useRef("");
+
   /*Google Drive image picker*/
   function handleOpenPicker() {
     setErrorMsg("")
@@ -51,12 +55,14 @@ function Upload(props) {
       },
     });
   }
+
   /*Waits for google drive client access token*/
   useEffect(() => {
     if (authResult) {
       oauthToken.current = authResult.access_token;
     }
   }, [authResult]);
+
   /*DropBox image picker*/
   function onSuccess(dropBoxFile) {
     setErrorMsg("")
@@ -76,13 +82,16 @@ function Upload(props) {
         setFile({ data: blob, name: dropBoxName });
       });
   }
+
   /*On cancel simply do nothing*/
   function onCancel() {}
+
   /*For selection from local file system*/
   function onFileChange(e) {
     setFile({ data: e.target.files[0] });
     setErrorMsg("")
   }
+
   /*On submition convert file into FormData*/
   function onSubmit(e) {
     e.preventDefault();
@@ -101,6 +110,7 @@ function Upload(props) {
       });
     }
   }
+
   return (
     <div className="row-upload">
       <div className="file-pickers">
@@ -156,4 +166,5 @@ function Upload(props) {
     </div>
   );
 }
+
 export default Upload;

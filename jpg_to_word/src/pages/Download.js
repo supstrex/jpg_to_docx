@@ -16,6 +16,7 @@ function Download(props) {
   function copyText() {
     navigator.clipboard.writeText(fileUrl);
   }
+
   return (
     <div className="row-download">
       <div className="link-handling">
@@ -58,4 +59,5 @@ function Download(props) {
     </div>
   );
 }
+
 export default Download;

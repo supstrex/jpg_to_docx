@@ -18,6 +18,7 @@ function Upload(props) {
   const oauthToken = useRef("");
   /*Google Drive image picker*/
   function handleOpenPicker() {
+    setErrorMsg("")
     openPicker({
       clientId: GOOGLE_DRIVE_CLIENT_ID,
       developerKey: GOOGLE_DRIVE_DEVELOPER_KEY,
@@ -58,6 +59,7 @@ function Upload(props) {
   }, [authResult]);
   /*DropBox image picker*/
   function onSuccess(dropBoxFile) {
+    setErrorMsg("")
     const dropBoxLink = dropBoxFile[0].link;
     const dropBoxName = dropBoxFile[0].name;
     const dropBoxMimeType =
@@ -79,6 +81,7 @@ function Upload(props) {
   /*For selection from local file system*/
   function onFileChange(e) {
     setFile({ data: e.target.files[0] });
+    setErrorMsg("")
   }
   /*On submition convert file into FormData*/
   function onSubmit(e) {

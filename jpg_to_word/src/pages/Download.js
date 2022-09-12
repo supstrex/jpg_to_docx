@@ -13,12 +13,9 @@ import DownloadImg from "../media/downloading.png";
 
 function Download(props) {
   const fileUrl = props.download.fileUrl;
-  /*Handle sharable link display*/
-
   function copyText() {
     navigator.clipboard.writeText(fileUrl);
   }
-
   return (
     <div className="row-download">
       <div className="link-handling">
@@ -28,21 +25,18 @@ function Download(props) {
             <QRCode value={fileUrl} size={100} />
           </div>
         </div>
-
         <div className="converted-file">
           <p className="text-of-download">Use sharable link</p>
           <button className="copy-button" onClick={copyText}>
             <img className="copy-img" src={CopyImg} alt={"Icon for copying"}/>
           </button>
         </div>
-
         <div className="converted-file">
           <p className="text-of-download">Or simply download</p>
           <a href={fileUrl}>
             <img className="download-img" src={DownloadImg} alt={"Icon for downloading"}/>
           </a>
         </div>
-
       </div>
       <div className="social-medias">
         <div className="social">

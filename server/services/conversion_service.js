@@ -1,8 +1,8 @@
 import docx from "docx";
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 import fs from "fs";
 import path from "path";
-// import Conversion from "../models/Conversion.js";
+import Conversion from "../models/Conversion.js";
 import sizeOf from "image-size";
 
 async function docxConversion(imageName, url, imageMimeType) {
@@ -51,22 +51,22 @@ async function docxConversion(imageName, url, imageMimeType) {
   const convertedFileUrl = url + "/download/docx/" + docxName;
   
   /*Save conversion history in database*/
-  // const conversion = new Conversion({
-  //   _id: new mongoose.Types.ObjectId(),
-  //   originalFile: {
-  //     name: imageName,
-  //     mimeType: imageMimeType,
-  //     url: url + "/download/image/" + imageName,
-  //   },
-  //   convertedFile: {
-  //     name: docxName,
-  //     mimeType:
-  //       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  //     url: convertedFileUrl,
-  //   },
-  // });
+  const conversion = new Conversion({
+    _id: new mongoose.Types.ObjectId(),
+    originalFile: {
+      name: imageName,
+      mimeType: imageMimeType,
+      url: url + "/download/image/" + imageName,
+    },
+    convertedFile: {
+      name: docxName,
+      mimeType:
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      url: convertedFileUrl,
+    },
+  });
 
-  // await conversion.save();
+  await conversion.save();
 
   return { docxName, convertedFileUrl };
 }

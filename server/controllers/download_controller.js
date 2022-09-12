@@ -4,13 +4,15 @@ export async function getDocx(req, res) {
   /*Get filename from req*/
   const docxName = req.params.fileName;
   const file = path.resolve("./public/docxs/" + docxName);
+
   /*If there is no file return Denied response*/
   if (!file) {
-    return res.status(200).send({
+    return res.status(403).send({
       status: "Denied",
       message: "Invalid file name",
     });
   }
+
   /*Set headers and download file*/
   res.setHeader("Content-disposition", "attachment; filename=" + docxName);
   res.setHeader(

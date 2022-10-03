@@ -3,7 +3,7 @@ async function customErrorHandler(err, req, res, next) {
   
   /* handling file format*/ 
   if (err.message == "Only .jpg/.jpeg format is allowed!") {
-    return res.status(403).send({
+    return res.send({
       status: "Denied",
       message: err.message,
     });
@@ -11,7 +11,7 @@ async function customErrorHandler(err, req, res, next) {
   
   /* handling file size*/ 
   if (err.message == "File too large") {
-    return res.status(403).send({
+    return res.send({
       status: "Denied",
       message: err.message,
     });

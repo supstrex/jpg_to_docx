@@ -7,7 +7,7 @@ export async function getDocx(req, res) {
 
   /*If there is no file return Denied response*/
   if (!file) {
-    return res.status(403).send({
+    return res.send({
       status: "Denied",
       message: "Invalid file name",
     });

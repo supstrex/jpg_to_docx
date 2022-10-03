@@ -3,7 +3,7 @@ import docxConversion from "../services/conversion_service.js";
 export async function jpgToDoc(req, res) {
   /*If no file reseaved, respond with Denied status*/
   if (typeof req.file == "undefined") {
-    return res.status(403).send({
+    return res.send({
       status: "Denied",
       message: "No file found, please attach a file",
     });
@@ -20,7 +20,7 @@ export async function jpgToDoc(req, res) {
   );
   
   /*If successful return file metadata*/
-  return res.status(200).send({
+  return res.send({
     status: "Success",
     message: "File is successfully converted",
     name: docxName,

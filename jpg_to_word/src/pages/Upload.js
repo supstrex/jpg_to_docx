@@ -99,6 +99,7 @@ function Upload(props) {
       const formData = new FormData();
       formData.append("original_file", file.data, file.name);
       axios.post("/convert/jpg-doc", formData, {}).then((res) => {
+        console.log(res);
         if (res.data.status === "Denied") {
           console.log(res.data.message);
           setErrorMsg(res.data.message);
